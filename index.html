@@ -1,4 +1,3 @@
-# For-stephanie
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +7,7 @@
 <title>🎁 Stephanie's Birthday Surprise</title>
 
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -57,7 +57,10 @@ p{
     line-height:1.7;
 }
 
-/* BUTTONS */
+
+/* =========================
+   BUTTONS
+========================= */
 
 button{
     padding:14px 28px;
@@ -81,6 +84,7 @@ button:hover{
 button:active{
     transform:scale(.95);
 }
+
 
 /* =========================
    LOGIN
@@ -160,6 +164,7 @@ button:active{
     min-height:20px;
 }
 
+
 /* =========================
    WELCOME
 ========================= */
@@ -193,6 +198,7 @@ button:active{
     color:#ddd;
 }
 
+
 /* =========================
    MESSAGE
 ========================= */
@@ -219,6 +225,7 @@ button:active{
 .message-card p{
     color:#eee;
 }
+
 
 /* =========================
    SUSPENSE
@@ -260,6 +267,7 @@ button:active{
     66%{content:"..";}
     100%{content:"...";}
 }
+
 
 /* =========================
    SIMULATION
@@ -365,6 +373,7 @@ button:active{
     text-align:center;
 }
 
+
 /* =========================
    CODE
 ========================= */
@@ -412,6 +421,7 @@ button:active{
     margin-top:15px;
     min-height:20px;
 }
+
 
 /* =========================
    BIRTHDAY
@@ -463,6 +473,33 @@ button:active{
     font-size:16px;
 }
 
+
+/* Birthday message animation */
+
+.love-message{
+    margin-top:20px;
+}
+
+.love-line{
+    opacity:0;
+    transform:translateY(15px);
+    animation:revealLine .8s ease forwards;
+    margin-bottom:12px;
+}
+
+@keyframes revealLine{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.love-highlight{
+    color:#ff9bdd;
+    font-weight:bold;
+    text-shadow:0 0 12px #ff1493;
+}
+
 .big-cake{
     font-size:90px;
     margin:20px;
@@ -480,6 +517,7 @@ button:active{
     font-size:25px;
     animation:fall 6s linear infinite;
     opacity:.8;
+    pointer-events:none;
 }
 
 @keyframes fall{
@@ -504,9 +542,222 @@ button:active{
     color:#aaa !important;
 }
 
+
+/* =========================
+   MEMORIES
+========================= */
+
+#memories{
+    background:
+        radial-gradient(circle at top,
+        #51125d 0%,
+        #1b0625 45%,
+        #050009 100%);
+    position:relative;
+    overflow:hidden;
+}
+
+.memories-container{
+    width:100%;
+    max-width:950px;
+    text-align:center;
+    position:relative;
+    z-index:2;
+    padding:20px 10px;
+}
+
+.memories-title{
+    color:#ff66cc;
+    font-size:clamp(35px,8vw,60px);
+    text-shadow:
+        0 0 10px #ff66cc,
+        0 0 25px #ff1493;
+    margin-bottom:10px;
+    animation:memoryGlow 2s infinite alternate;
+}
+
+@keyframes memoryGlow{
+    from{
+        text-shadow:
+            0 0 10px #ff66cc,
+            0 0 25px #ff1493;
+    }
+
+    to{
+        text-shadow:
+            0 0 20px #ff66cc,
+            0 0 45px #ff1493;
+    }
+}
+
+.memories-subtitle{
+    color:#ddd;
+    margin-bottom:30px;
+    font-size:15px;
+}
+
+.memory-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+    width:100%;
+}
+
+.memory-card{
+    position:relative;
+    height:220px;
+    border-radius:16px;
+    overflow:hidden;
+    border:2px solid #ff66cc66;
+    background:#120713;
+    box-shadow:
+        0 0 15px #ff149333;
+    cursor:pointer;
+    opacity:0;
+    transform:translateY(30px) scale(.96);
+    animation:memoryAppear .8s ease forwards;
+}
+
+.memory-card:nth-child(1){
+    animation-delay:.2s;
+}
+
+.memory-card:nth-child(2){
+    animation-delay:.4s;
+}
+
+.memory-card:nth-child(3){
+    animation-delay:.6s;
+}
+
+.memory-card:nth-child(4){
+    animation-delay:.8s;
+}
+
+.memory-card:nth-child(5){
+    animation-delay:1s;
+}
+
+.memory-card:nth-child(6){
+    animation-delay:1.2s;
+}
+
+@keyframes memoryAppear{
+    to{
+        opacity:1;
+        transform:translateY(0) scale(1);
+    }
+}
+
+.memory-card img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+    transition:transform .5s ease;
+}
+
+.memory-card:hover img{
+    transform:scale(1.1);
+}
+
+.memory-card::after{
+    content:"🔍 TAP TO VIEW";
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    padding:12px 5px;
+    background:linear-gradient(
+        transparent,
+        rgba(0,0,0,.85)
+    );
+    color:white;
+    font-size:11px;
+    opacity:0;
+    transition:.3s;
+}
+
+.memory-card:hover::after{
+    opacity:1;
+}
+
+
+/* =========================
+   MEMORY VIEWER
+========================= */
+
+#memoryViewer{
+    position:fixed;
+    inset:0;
+    z-index:9999;
+    background:rgba(0,0,0,.94);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.viewer-image{
+    max-width:95%;
+    max-height:85vh;
+    object-fit:contain;
+    border:2px solid #ff66cc;
+    border-radius:12px;
+    box-shadow:
+        0 0 25px #ff66cc,
+        0 0 60px #ff149388;
+    animation:viewerOpen .35s ease;
+}
+
+@keyframes viewerOpen{
+    from{
+        opacity:0;
+        transform:scale(.8);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+.close-viewer{
+    position:absolute;
+    top:20px;
+    right:20px;
+    width:48px;
+    height:48px;
+    padding:0;
+    margin:0;
+    border-radius:50%;
+    font-size:24px;
+    background:#180014;
+    color:#ff66cc;
+}
+
+.memory-footer{
+    color:#aaa;
+    margin-top:25px;
+    font-size:12px;
+}
+
+
 /* =========================
    MOBILE
 ========================= */
+
+@media(max-width:700px){
+
+    .memory-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:12px;
+    }
+
+    .memory-card{
+        height:180px;
+    }
+}
 
 @media(max-width:600px){
 
@@ -555,7 +806,42 @@ button:active{
     .birthday-card p{
         font-size:14px;
     }
+
+    .memories-container{
+        padding:15px 5px;
+    }
+
+    .memories-title{
+        font-size:38px;
+    }
+
+    .memories-subtitle{
+        font-size:13px;
+    }
+
+    .memory-card{
+        height:155px;
+        border-radius:12px;
+    }
+
+    .memory-card::after{
+        font-size:9px;
+        padding:8px 2px;
+    }
+
 }
+
+@media(max-width:380px){
+
+    .memory-grid{
+        grid-template-columns:1fr;
+    }
+
+    .memory-card{
+        height:220px;
+    }
+}
+
 </style>
 </head>
 
@@ -575,34 +861,30 @@ button:active{
         </div>
 
         <h1>
-            Welcome
+            Welcome🥳
         </h1>
 
         <p>
-            Enter your details to discover
+            Login  to discover
             your special surprise.
         </p>
 
         <div class="input-group">
-
             <input
                 type="text"
                 id="username"
                 placeholder="Username"
                 autocomplete="off"
             >
-
         </div>
 
         <div class="input-group">
-
             <input
                 type="password"
                 id="password"
                 placeholder="Password"
                 autocomplete="off"
             >
-
         </div>
 
         <button
@@ -612,10 +894,7 @@ button:active{
             LOGIN 💜
         </button>
 
-        <p
-            id="loginError"
-            class="login-error"
-        ></p>
+        <p id="loginError" class="login-error"></p>
 
     </div>
 
@@ -631,7 +910,7 @@ button:active{
     <div class="card">
 
         <div class="gift">
-            🎁
+            🎁💘
         </div>
 
         <h1>
@@ -639,8 +918,7 @@ button:active{
         </h1>
 
         <p>
-            Someone prepared something
-            special just for you.
+            A special gift from rodgers❤️‍🩹🫂
         </p>
 
         <button onclick="showMessage()">
@@ -661,7 +939,7 @@ button:active{
     <div class="message-card">
 
         <h2>
-            💜 A Little Message
+            💜 Happy birthday Stephanie 🎂 
         </h2>
 
         <p>
@@ -674,11 +952,11 @@ button:active{
             the clues to discover it.
             <br><br>
 
-            Ready?
+            Ready?🙈
         </p>
 
         <button onclick="startSuspense()">
-            CONTINUE ✨
+            CONTINUE ✨🤧
         </button>
 
     </div>
@@ -726,8 +1004,7 @@ button:active{
             </h1>
 
             <p>
-                SECURITY SIMULATION —
-                NO REAL SYSTEM CHANGES
+                SECURITY SIMULATION.... 
             </p>
 
         </div>
@@ -736,7 +1013,7 @@ button:active{
 
             TIME REMAINING:
             <span id="countdown">
-                15
+                10
             </span>s
 
         </div>
@@ -857,30 +1134,210 @@ button:active{
             🎉 Surprise! 🎉
         </p>
 
-        <br>
+        <div class="love-message">
 
-        <p>
-            What looked like a little system
-            problem was actually hiding something
-            much more special.
-            <br><br>
+            <p
+                class="love-line"
+                style="animation-delay:.5s"
+            >
+                What looked like a little system
+                problem was actually hiding something
+                much more special. 💜
+            </p>
 
-            Today is all about celebrating YOU.
-            <br><br>
+            <p
+                class="love-line"
+                style="animation-delay:1.5s"
+            >
+                Today is all about celebrating YOU. ✨
+            </p>
 
-            May your birthday be filled with
-            happiness, laughter, beautiful memories,
-            and wonderful moments.
-            <br><br>
+            <p
+                class="love-line love-highlight"
+                style="animation-delay:2.5s"
+            >
+                Happy Birthday, my love! ❤️🎉🎂💖
+            </p>
 
-            🎈 Have an amazing birthday,
-            Stephanie! 🎈
-        </p>
+            <p
+                class="love-line"
+                style="animation-delay:3.5s"
+            >
+                May your special day be filled with
+                happiness, laughter, beautiful moments,
+                and everything your heart desires. 🥰✨💐
+            </p>
+
+            <p
+                class="love-line"
+                style="animation-delay:4.5s"
+            >
+                You deserve all the love and joy
+                in the world. 💕🌹
+            </p>
+
+            <p
+                class="love-line"
+                style="animation-delay:5.5s"
+            >
+                May this new year of your life bring you
+                countless blessings, unforgettable memories,
+                and reasons to smile every single day. 😘❤️🎁
+            </p>
+
+            <p
+                class="love-line love-highlight"
+                style="animation-delay:6.5s"
+            >
+                Happy Birthday, beautiful! 🥳💖🎂🌹❤️
+            </p>
+
+            <p
+                class="love-line"
+                style="animation-delay:7.5s"
+            >
+                🎈 Have an amazing birthday, Stephanie! 🎈
+            </p>
+
+        </div>
 
         <p class="sim-note">
-            The security sequence was only a
-            harmless webpage simulation.
-            No files or device functions were accessed.
+            Happy birthday Stephanie Thee shuttles
+        
+        </p>
+
+        <button onclick="showMemories()">
+            OPEN MY MEMORIES 📸💜
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MEMORIES
+========================= -->
+
+<section
+    id="memories"
+    class="screen hidden"
+>
+
+    <div class="memories-container">
+
+        <h1 class="memories-title">
+            📸 Memories
+        </h1>
+
+        <p class="memories-subtitle">
+            A little collection of beautiful moments ✨
+        </p>
+
+
+        <div class="memory-grid">
+
+
+            <!-- MEMORY 1 -->
+
+            <div
+                class="memory-card"
+                onclick="openMemory('memory1')"
+            >
+
+                <img
+                    id="memory1"
+                    src="https://raw.githubusercontent.com/rodgerskosgei68-web/For-stephanie/c9a39db85c3e1e5af96ef97d4213317fba82afff/IMG-20260818-WA0007.jpg"
+                    alt="Memory 1"
+                >
+
+            </div>
+
+
+            <!-- MEMORY 2 -->
+
+            <div
+                class="memory-card"
+                onclick="openMemory('memory2')"
+            >
+
+                <img
+                    id="memory2"
+                    src="https://raw.githubusercontent.com/rodgerskosgei68-web/For-stephanie/556c74b95e3dbda4a3f845e4ac36dfbf55856971/IMG-20260818-WA0006.jpg"
+                    alt="Memory 2"
+                >
+
+            </div>
+
+
+            <!-- MEMORY 3 -->
+
+            <div
+                class="memory-card"
+                onclick="openMemory('memory3')"
+            >
+
+                <img
+                    id="memory3"
+                    src="https://raw.githubusercontent.com/rodgerskosgei68-web/For-stephanie/9842a58bc6de7861cc9d98599c825d00dfc6dac0/IMG-20260818-WA0012.jpg"
+                    alt="Memory 3"
+                >
+
+            </div>
+
+
+            <!-- MEMORY 4 -->
+
+            <div
+                class="memory-card"
+                onclick="openMemory('memory4')"
+            >
+
+                <img
+                    id="memory4"
+                    src="https://raw.githubusercontent.com/rodgerskosgei68-web/For-stephanie/95a23af63a91b4109dec72131c659adc12f48b1b/IMG-20260818-WA0011.jpg"
+                    alt="Memory 4"
+                >
+
+            </div>
+
+
+            <!-- MEMORY 5 -->
+
+            <div
+                class="memory-card"
+                onclick="openMemory('memory5')"
+            >
+
+                <img
+                    id="memory5"
+                    src="https://raw.githubusercontent.com/rodgerskosgei68-web/For-stephanie/873cca017649d99d29036b1e7b7c5ed89ee758d2/IMG-20260818-WA0009.jpg"
+                    alt="Memory 5"
+                >
+
+            </div>
+
+
+            <!-- MEMORY 6 -->
+
+            <div
+                class="memory-card"
+                onclick="openMemory('memory6')"
+            >
+
+                <img
+                    id="memory6"
+                    src="https://raw.githubusercontent.com/rodgerskosgei68-web/For-stephanie/160ac1895f35fbd98948cc1bdb42020f7215955a/IMG-20260818-WA0004.jpg"
+                    alt="Memory 6"
+                >
+
+            </div>
+
+        </div>
+
+
+        <p class="memory-footer">
+            ✨ Every picture holds a special moment. ✨
         </p>
 
     </div>
@@ -888,7 +1345,35 @@ button:active{
 </section>
 
 
+<!-- =========================
+     FULLSCREEN IMAGE VIEWER
+========================= -->
+
+<div
+    id="memoryViewer"
+    class="hidden"
+>
+
+    <button
+        class="close-viewer"
+        onclick="closeMemory()"
+        aria-label="Close image"
+    >
+        ×
+    </button>
+
+    <img
+        id="viewerImage"
+        class="viewer-image"
+        src=""
+        alt="Selected memory"
+    >
+
+</div>
+
+
 <script>
+
 
 /* =========================
    LOGIN DETAILS
@@ -1365,6 +1850,21 @@ document
 
 
 /* =========================
+   BIRTHDAY → MEMORIES
+========================= */
+
+function showMemories(){
+
+    hideAll();
+
+    document
+        .getElementById("memories")
+        .classList.remove("hidden");
+
+}
+
+
+/* =========================
    HEART ANIMATION
 ========================= */
 
@@ -1418,7 +1918,96 @@ function createHearts(){
 
 }
 
+
+/* =========================
+   OPEN MEMORY
+========================= */
+
+function openMemory(imageId){
+
+    const image =
+        document.getElementById(imageId);
+
+    const viewer =
+        document.getElementById("memoryViewer");
+
+    const viewerImage =
+        document.getElementById("viewerImage");
+
+
+    viewerImage.src =
+        image.src;
+
+
+    viewerImage.alt =
+        image.alt;
+
+
+    viewer.classList.remove("hidden");
+
+}
+
+
+/* =========================
+   CLOSE MEMORY
+========================= */
+
+function closeMemory(){
+
+    const viewer =
+        document.getElementById("memoryViewer");
+
+
+    viewer.classList.add("hidden");
+
+
+    document
+        .getElementById("viewerImage")
+        .src = "";
+
+}
+
+
+/* =========================
+   CLOSE VIEWER WITH ESC
+========================= */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(event.key === "Escape"){
+
+            closeMemory();
+
+        }
+
+    }
+);
+
+
+/* =========================
+   CLICK OUTSIDE IMAGE
+========================= */
+
+document
+    .getElementById("memoryViewer")
+    .addEventListener(
+        "click",
+        function(event){
+
+            if(
+                event.target === this
+            ){
+
+                closeMemory();
+
+            }
+
+        }
+    );
+
 </script>
 
 </body>
-</html>
+    </html>
