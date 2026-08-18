@@ -1,0 +1,1424 @@
+# For-stephanie
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>🎁 Stephanie's Birthday Surprise</title>
+
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
+
+html,body{
+    width:100%;
+    min-height:100%;
+}
+
+body{
+    background:#050509;
+    color:white;
+    font-family:"Courier New",monospace;
+    overflow-x:hidden;
+}
+
+.screen{
+    width:100%;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+}
+
+.hidden{
+    display:none !important;
+}
+
+.card{
+    width:100%;
+    max-width:700px;
+    text-align:center;
+}
+
+h1{
+    font-size:clamp(30px,8vw,60px);
+}
+
+h2{
+    font-size:clamp(25px,6vw,40px);
+}
+
+p{
+    line-height:1.7;
+}
+
+/* BUTTONS */
+
+button{
+    padding:14px 28px;
+    margin-top:25px;
+    border:2px solid #ff66cc;
+    background:#090009;
+    color:#ff66cc;
+    font-family:inherit;
+    font-weight:bold;
+    border-radius:8px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+button:hover{
+    background:#ff66cc;
+    color:#090009;
+    box-shadow:0 0 25px #ff66cc;
+}
+
+button:active{
+    transform:scale(.95);
+}
+
+/* =========================
+   LOGIN
+========================= */
+
+#login{
+    background:
+        radial-gradient(circle at center,
+        #35104a 0%,
+        #100516 45%,
+        #030305 100%);
+}
+
+.login-card{
+    width:100%;
+    max-width:420px;
+    padding:35px 25px;
+    text-align:center;
+    border:1px solid #ff66cc;
+    border-radius:18px;
+    background:#09050cdd;
+    box-shadow:0 0 40px #ff149355;
+}
+
+.login-icon{
+    font-size:65px;
+    margin-bottom:15px;
+    animation:float 2s infinite ease-in-out;
+}
+
+@keyframes float{
+    50%{
+        transform:translateY(-8px);
+    }
+}
+
+.login-card h1{
+    color:#ff66cc;
+    text-shadow:0 0 20px #ff1493;
+    font-size:clamp(28px,8vw,42px);
+    margin-bottom:10px;
+}
+
+.login-card p{
+    color:#ccc;
+    font-size:14px;
+    margin-bottom:20px;
+}
+
+.input-group{
+    margin:15px 0;
+}
+
+.input-group input{
+    width:100%;
+    padding:14px;
+    background:#020202;
+    border:1px solid #ff66cc;
+    border-radius:7px;
+    color:#fff;
+    font-family:inherit;
+    font-size:16px;
+    outline:none;
+}
+
+.input-group input:focus{
+    box-shadow:0 0 15px #ff66cc66;
+}
+
+.login-button{
+    width:100%;
+}
+
+.login-error{
+    color:#ff4444 !important;
+    margin-top:15px;
+    min-height:20px;
+}
+
+/* =========================
+   WELCOME
+========================= */
+
+#welcome{
+    background:
+        radial-gradient(circle at center,
+        #321044 0%,
+        #100516 40%,
+        #050509 80%);
+}
+
+.gift{
+    font-size:80px;
+    animation:floatGift 2s infinite ease-in-out;
+}
+
+@keyframes floatGift{
+    50%{
+        transform:translateY(-15px) rotate(4deg);
+    }
+}
+
+#welcome h1{
+    color:#ff66cc;
+    text-shadow:0 0 20px #ff1493;
+    margin:15px 0;
+}
+
+#welcome p{
+    color:#ddd;
+}
+
+/* =========================
+   MESSAGE
+========================= */
+
+#message{
+    background:
+        radial-gradient(circle,
+        #35124a,
+        #09030d 70%);
+}
+
+.message-card{
+    border:1px solid #ff66cc;
+    padding:35px 25px;
+    border-radius:15px;
+    box-shadow:0 0 35px #ff149355;
+}
+
+.message-card h2{
+    color:#ff66cc;
+    margin-bottom:20px;
+}
+
+.message-card p{
+    color:#eee;
+}
+
+/* =========================
+   SUSPENSE
+========================= */
+
+#suspense{
+    background:#030305;
+}
+
+.loading{
+    width:180px;
+    height:180px;
+    border:3px solid #222;
+    border-top:3px solid #ff66cc;
+    border-radius:50%;
+    margin:0 auto 30px;
+    animation:spin 1.5s linear infinite;
+}
+
+@keyframes spin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+#suspense h2{
+    color:#ff66cc;
+    margin-bottom:15px;
+}
+
+.dots::after{
+    content:"";
+    animation:dots 1.5s infinite;
+}
+
+@keyframes dots{
+    0%{content:"";}
+    33%{content:".";}
+    66%{content:"..";}
+    100%{content:"...";}
+}
+
+/* =========================
+   SIMULATION
+========================= */
+
+#simulation{
+    background:#050505;
+    color:#00ff66;
+}
+
+.simulation-container{
+    width:100%;
+    max-width:850px;
+}
+
+.warning{
+    text-align:center;
+    border:2px solid #ff3333;
+    padding:25px 15px;
+    margin-bottom:18px;
+    box-shadow:0 0 25px #ff000066;
+}
+
+.warning h1{
+    color:#ff3333;
+    font-size:clamp(28px,7vw,55px);
+    animation:blink 1s infinite;
+}
+
+.warning p{
+    color:white;
+    font-size:13px;
+    margin-top:10px;
+}
+
+@keyframes blink{
+    50%{
+        opacity:.35;
+    }
+}
+
+.sim-countdown{
+    text-align:center;
+    border:1px solid #ffff00;
+    padding:12px;
+    margin-bottom:18px;
+    color:white;
+}
+
+#countdown{
+    color:#ffff00;
+    font-size:30px;
+    font-weight:bold;
+}
+
+.terminal{
+    background:#000;
+    border:1px solid #00ff66;
+    padding:18px;
+    height:260px;
+    overflow:hidden;
+    box-shadow:0 0 20px #00ff6633;
+}
+
+.line{
+    margin-bottom:8px;
+    font-size:13px;
+    line-height:1.4;
+}
+
+.red{
+    color:#ff3333;
+}
+
+.yellow{
+    color:#ffff00;
+}
+
+.progress-box{
+    margin-top:18px;
+}
+
+.progress{
+    width:100%;
+    height:22px;
+    border:1px solid #00ff66;
+    padding:3px;
+}
+
+.bar{
+    height:100%;
+    width:0%;
+    background:#00ff66;
+    transition:.2s;
+}
+
+.percent{
+    text-align:center;
+    margin-top:8px;
+}
+
+.exit-button{
+    text-align:center;
+}
+
+/* =========================
+   CODE
+========================= */
+
+#codeScreen{
+    background:
+        radial-gradient(circle,
+        #111b22,
+        #020405 70%);
+}
+
+.code-card{
+    width:100%;
+    max-width:500px;
+    border:2px solid #00ff66;
+    padding:35px 20px;
+    text-align:center;
+    box-shadow:0 0 30px #00ff6644;
+}
+
+.code-card h2{
+    color:#00ff66;
+    margin-bottom:15px;
+}
+
+.code-card p{
+    color:#ddd;
+}
+
+#secretCode{
+    margin-top:20px;
+    width:min(250px,90%);
+    padding:14px;
+    background:#000;
+    color:#00ff66;
+    border:1px solid #00ff66;
+    text-align:center;
+    font-family:inherit;
+    font-size:22px;
+    outline:none;
+}
+
+#error{
+    color:#ff3333;
+    margin-top:15px;
+    min-height:20px;
+}
+
+/* =========================
+   BIRTHDAY
+========================= */
+
+#birthday{
+    background:
+        radial-gradient(circle at center,
+        #51125d,
+        #19051f 45%,
+        #050009 100%);
+    position:relative;
+    overflow:hidden;
+}
+
+.birthday-card{
+    width:100%;
+    max-width:750px;
+    text-align:center;
+    padding:25px;
+    position:relative;
+    z-index:2;
+}
+
+.birthday-card h1{
+    color:#ff66cc;
+    text-shadow:
+        0 0 10px #ff66cc,
+        0 0 30px #ff1493;
+    animation:birthdayGlow 2s infinite alternate;
+}
+
+@keyframes birthdayGlow{
+    from{
+        transform:scale(1);
+    }
+    to{
+        transform:scale(1.04);
+    }
+}
+
+.birthday-card h2{
+    color:#fff;
+    margin:20px 0;
+}
+
+.birthday-card p{
+    color:#eee;
+    font-size:16px;
+}
+
+.big-cake{
+    font-size:90px;
+    margin:20px;
+    animation:cake 1.5s infinite ease-in-out;
+}
+
+@keyframes cake{
+    50%{
+        transform:translateY(-8px);
+    }
+}
+
+.heart{
+    position:absolute;
+    font-size:25px;
+    animation:fall 6s linear infinite;
+    opacity:.8;
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-100px) rotate(0);
+        opacity:0;
+    }
+
+    20%{
+        opacity:1;
+    }
+
+    to{
+        transform:translateY(110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+.sim-note{
+    margin-top:25px;
+    font-size:12px !important;
+    color:#aaa !important;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .screen{
+        padding:15px;
+    }
+
+    .login-card{
+        padding:28px 18px;
+    }
+
+    .login-icon{
+        font-size:55px;
+    }
+
+    .gift{
+        font-size:65px;
+    }
+
+    .message-card{
+        padding:25px 18px;
+    }
+
+    .terminal{
+        height:230px;
+        padding:12px;
+    }
+
+    .line{
+        font-size:11px;
+    }
+
+    button{
+        width:90%;
+        max-width:300px;
+    }
+
+    .birthday-card{
+        padding:15px;
+    }
+
+    .big-cake{
+        font-size:70px;
+    }
+
+    .birthday-card p{
+        font-size:14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+
+<!-- =========================
+     LOGIN
+========================= -->
+
+<section id="login" class="screen">
+
+    <div class="login-card">
+
+        <div class="login-icon">
+            🔐
+        </div>
+
+        <h1>
+            Welcome
+        </h1>
+
+        <p>
+            Enter your details to discover
+            your special surprise.
+        </p>
+
+        <div class="input-group">
+
+            <input
+                type="text"
+                id="username"
+                placeholder="Username"
+                autocomplete="off"
+            >
+
+        </div>
+
+        <div class="input-group">
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Password"
+                autocomplete="off"
+            >
+
+        </div>
+
+        <button
+            class="login-button"
+            onclick="login()"
+        >
+            LOGIN 💜
+        </button>
+
+        <p
+            id="loginError"
+            class="login-error"
+        ></p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     WELCOME
+========================= -->
+
+<section id="welcome" class="screen hidden">
+
+    <div class="card">
+
+        <div class="gift">
+            🎁
+        </div>
+
+        <h1>
+            Hey Stephanie...
+        </h1>
+
+        <p>
+            Someone prepared something
+            special just for you.
+        </p>
+
+        <button onclick="showMessage()">
+            OPEN MY GIFT 💜
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MESSAGE
+========================= -->
+
+<section id="message" class="screen hidden">
+
+    <div class="message-card">
+
+        <h2>
+            💜 A Little Message
+        </h2>
+
+        <p>
+            Stephanie, this isn't just
+            an ordinary webpage.
+            <br><br>
+
+            There's a little surprise waiting
+            for you, but you'll have to follow
+            the clues to discover it.
+            <br><br>
+
+            Ready?
+        </p>
+
+        <button onclick="startSuspense()">
+            CONTINUE ✨
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SUSPENSE
+========================= -->
+
+<section id="suspense" class="screen hidden">
+
+    <div class="card">
+
+        <div class="loading"></div>
+
+        <h2>
+            Preparing your surprise<span
+                class="dots"
+            ></span>
+        </h2>
+
+        <p>
+            Please wait...
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SIMULATION
+========================= -->
+
+<section id="simulation" class="screen hidden">
+
+    <div class="simulation-container">
+
+        <div class="warning">
+
+            <h1>
+                ⚠ SYSTEM ALERT
+            </h1>
+
+            <p>
+                SECURITY SIMULATION —
+                NO REAL SYSTEM CHANGES
+            </p>
+
+        </div>
+
+        <div class="sim-countdown">
+
+            TIME REMAINING:
+            <span id="countdown">
+                15
+            </span>s
+
+        </div>
+
+        <div
+            class="terminal"
+            id="terminal"
+        >
+
+            <div class="line">
+                > Initializing security scanner...
+            </div>
+
+        </div>
+
+        <div class="progress-box">
+
+            <div class="progress">
+
+                <div
+                    class="bar"
+                    id="bar"
+                ></div>
+
+            </div>
+
+            <div class="percent">
+
+                <span id="percent">
+                    0
+                </span>% SCANNING
+
+            </div>
+
+        </div>
+
+        <div class="exit-button">
+
+            <button onclick="showCodeScreen()">
+                EXIT SIMULATION
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     RECOVERY CODE
+========================= -->
+
+<section
+    id="codeScreen"
+    class="screen hidden"
+>
+
+    <div class="code-card">
+
+        <h2>
+            🔐 RECOVERY REQUIRED
+        </h2>
+
+        <p>
+            The simulation has been interrupted.
+            <br><br>
+
+            Enter the secret recovery code
+            to continue.
+        </p>
+
+        <input
+            type="password"
+            id="secretCode"
+            maxlength="2"
+            inputmode="numeric"
+            placeholder="••"
+        >
+
+        <br>
+
+        <button onclick="checkCode()">
+            CONTINUE
+        </button>
+
+        <p id="error"></p>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     BIRTHDAY
+========================= -->
+
+<section
+    id="birthday"
+    class="screen hidden"
+>
+
+    <div class="birthday-card">
+
+        <div class="big-cake">
+            🎂
+        </div>
+
+        <h1>
+            HAPPY BIRTHDAY
+        </h1>
+
+        <h2>
+            STEPHANIE ❤️
+        </h2>
+
+        <p>
+            🎉 Surprise! 🎉
+        </p>
+
+        <br>
+
+        <p>
+            What looked like a little system
+            problem was actually hiding something
+            much more special.
+            <br><br>
+
+            Today is all about celebrating YOU.
+            <br><br>
+
+            May your birthday be filled with
+            happiness, laughter, beautiful memories,
+            and wonderful moments.
+            <br><br>
+
+            🎈 Have an amazing birthday,
+            Stephanie! 🎈
+        </p>
+
+        <p class="sim-note">
+            The security sequence was only a
+            harmless webpage simulation.
+            No files or device functions were accessed.
+        </p>
+
+    </div>
+
+</section>
+
+
+<script>
+
+/* =========================
+   LOGIN DETAILS
+========================= */
+
+const LOGIN_USERNAME = "Stephanie";
+const LOGIN_PASSWORD = "shuttler";
+
+const RECOVERY_CODE = "20";
+
+
+/* =========================
+   SCREEN HELPER
+========================= */
+
+function hideAll(){
+
+    document
+        .querySelectorAll(".screen")
+        .forEach(screen => {
+
+            screen.classList.add("hidden");
+
+        });
+
+}
+
+
+/* =========================
+   LOGIN
+========================= */
+
+function login(){
+
+    const username =
+        document
+            .getElementById("username")
+            .value
+            .trim();
+
+    const password =
+        document
+            .getElementById("password")
+            .value;
+
+    const error =
+        document
+            .getElementById("loginError");
+
+
+    if(
+        username === LOGIN_USERNAME &&
+        password === LOGIN_PASSWORD
+    ){
+
+        error.textContent = "";
+
+        hideAll();
+
+        document
+            .getElementById("welcome")
+            .classList.remove("hidden");
+
+    }else{
+
+        error.textContent =
+            "❌ Incorrect username or password.";
+
+    }
+
+}
+
+
+/* =========================
+   ENTER KEY LOGIN
+========================= */
+
+document
+    .getElementById("password")
+    .addEventListener(
+        "keydown",
+        function(event){
+
+            if(event.key === "Enter"){
+                login();
+            }
+
+        }
+    );
+
+
+/* =========================
+   WELCOME → MESSAGE
+========================= */
+
+function showMessage(){
+
+    hideAll();
+
+    document
+        .getElementById("message")
+        .classList.remove("hidden");
+
+}
+
+
+/* =========================
+   MESSAGE → SUSPENSE
+========================= */
+
+function startSuspense(){
+
+    hideAll();
+
+    document
+        .getElementById("suspense")
+        .classList.remove("hidden");
+
+
+    setTimeout(() => {
+
+        startSimulation();
+
+    },5000);
+
+}
+
+
+/* =========================
+   SIMULATION VARIABLES
+========================= */
+
+let progress = 0;
+
+let timeLeft = 15;
+
+let countdownTimer;
+
+let scanTimer;
+
+
+const messages = [
+
+    "Scanning system directories...",
+
+    "Checking running processes...",
+
+    "Analyzing network connections...",
+
+    "Checking temporary files...",
+
+    "Scanning browser cache...",
+
+    "Checking security permissions...",
+
+    "Analyzing system memory...",
+
+    "Potential threat detected... [SIMULATION]",
+
+    "Analyzing suspicious file... [FAKE]",
+
+    "Threat classification: SIMULATED",
+
+    "Running security verification...",
+
+    "No real files are being accessed.",
+
+    "Simulation scan continuing..."
+
+];
+
+
+/* =========================
+   START SIMULATION
+========================= */
+
+function startSimulation(){
+
+    hideAll();
+
+    document
+        .getElementById("simulation")
+        .classList.remove("hidden");
+
+
+    progress = 0;
+
+    timeLeft = 15;
+
+
+    document
+        .getElementById("bar")
+        .style.width = "0%";
+
+
+    document
+        .getElementById("percent")
+        .textContent = "0";
+
+
+    document
+        .getElementById("countdown")
+        .textContent = "15";
+
+
+    document
+        .getElementById("terminal")
+        .innerHTML = `
+            <div class="line">
+                > Initializing security scanner...
+            </div>
+        `;
+
+
+    startCountdown();
+
+    scan();
+
+}
+
+
+/* =========================
+   ADD TERMINAL LINE
+========================= */
+
+function addLine(
+    text,
+    className=""
+){
+
+    const line =
+        document.createElement("div");
+
+    line.className =
+        "line " + className;
+
+    line.textContent =
+        "> " + text;
+
+
+    const terminal =
+        document.getElementById("terminal");
+
+
+    terminal.appendChild(line);
+
+    terminal.scrollTop =
+        terminal.scrollHeight;
+
+}
+
+
+/* =========================
+   SCAN
+========================= */
+
+function scan(){
+
+    if(progress >= 100){
+
+        addLine(
+            "SIMULATION SCAN COMPLETE.",
+            "yellow"
+        );
+
+        addLine(
+            "RESULT: NO REAL THREATS FOUND.",
+            "yellow"
+        );
+
+        return;
+
+    }
+
+
+    progress +=
+        Math.floor(Math.random()*5)+1;
+
+
+    if(progress > 100){
+        progress = 100;
+    }
+
+
+    document
+        .getElementById("bar")
+        .style.width =
+        progress + "%";
+
+
+    document
+        .getElementById("percent")
+        .textContent =
+        progress;
+
+
+    const message =
+        messages[
+            Math.floor(
+                Math.random()*messages.length
+            )
+        ];
+
+
+    if(
+        message.includes("threat") ||
+        message.includes("suspicious")
+    ){
+
+        addLine(
+            message,
+            "red"
+        );
+
+    }else{
+
+        addLine(message);
+
+    }
+
+
+    scanTimer =
+        setTimeout(
+            scan,
+            450
+        );
+
+}
+
+
+/* =========================
+   COUNTDOWN
+========================= */
+
+function startCountdown(){
+
+    clearInterval(
+        countdownTimer
+    );
+
+
+    countdownTimer =
+        setInterval(() => {
+
+            timeLeft--;
+
+
+            document
+                .getElementById("countdown")
+                .textContent =
+                timeLeft;
+
+
+            if(timeLeft <= 0){
+
+                clearInterval(
+                    countdownTimer
+                );
+
+
+                addLine(
+                    "SIMULATION TIMER COMPLETE.",
+                    "yellow"
+                );
+
+            }
+
+        },1000);
+
+}
+
+
+/* =========================
+   SHOW CODE SCREEN
+========================= */
+
+function showCodeScreen(){
+
+    clearInterval(
+        countdownTimer
+    );
+
+    clearTimeout(
+        scanTimer
+    );
+
+
+    hideAll();
+
+
+    document
+        .getElementById("codeScreen")
+        .classList.remove("hidden");
+
+
+    document
+        .getElementById("secretCode")
+        .value = "";
+
+
+    document
+        .getElementById("error")
+        .textContent = "";
+
+
+    setTimeout(() => {
+
+        document
+            .getElementById("secretCode")
+            .focus();
+
+    },100);
+
+}
+
+
+/* =========================
+   CHECK RECOVERY CODE
+========================= */
+
+function checkCode(){
+
+    const code =
+        document
+            .getElementById("secretCode")
+            .value;
+
+
+    if(code === RECOVERY_CODE){
+
+        clearInterval(
+            countdownTimer
+        );
+
+
+        hideAll();
+
+
+        document
+            .getElementById("birthday")
+            .classList.remove("hidden");
+
+
+        createHearts();
+
+    }else{
+
+        document
+            .getElementById("error")
+            .textContent =
+            "❌ Incorrect code. Try again.";
+
+    }
+
+}
+
+
+/* =========================
+   ENTER KEY FOR CODE
+========================= */
+
+document
+    .getElementById("secretCode")
+    .addEventListener(
+        "keydown",
+        function(event){
+
+            if(event.key === "Enter"){
+                checkCode();
+            }
+
+        }
+    );
+
+
+/* =========================
+   HEART ANIMATION
+========================= */
+
+function createHearts(){
+
+    const birthday =
+        document.getElementById("birthday");
+
+
+    for(let i=0;i<25;i++){
+
+        const heart =
+            document.createElement("div");
+
+
+        heart.className =
+            "heart";
+
+
+        heart.textContent =
+            [
+                "❤️",
+                "💜",
+                "💗",
+                "💖",
+                "✨"
+            ][
+                Math.floor(
+                    Math.random()*5
+                )
+            ];
+
+
+        heart.style.left =
+            Math.random()*100 + "%";
+
+
+        heart.style.animationDelay =
+            Math.random()*5 + "s";
+
+
+        heart.style.fontSize =
+            (15 + Math.random()*25) + "px";
+
+
+        birthday.appendChild(
+            heart
+        );
+
+    }
+
+}
+
+</script>
+
+</body>
+</html>
